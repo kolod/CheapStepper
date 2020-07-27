@@ -63,17 +63,21 @@ public:
 	// set virtual limit switches
 	void setLimits(uint32_t cw, uint32_t ccw) {
 		if (cw > ccw) {
-			limitCW = cw;
+			limitCW  = cw;
 			limitCCW = ccw;
 		}
 	}
 
+	// reset current position to zero
+	void resetPosition() {position = 0;}
+
+	// get interval for time delay function
 	uint16_t interval() const {return delay;}
 
 private:
 	int pins[4];            // defaults to pins {8,9,10,11} (in1,in2,in3,in4 on the driver board)
 	int direction;          // rotation direction
-	uint32_t position;      // current position in steps
+	int32_t position;       // current position in steps
 	uint16_t spr;           // steps per revolution
 	uint16_t rpm;           // revolutions per minute
 	int32_t limitCW;        // virtual limit switch for CW
@@ -81,11 +85,10 @@ private:
 	uint8_t stepMask;       // microstep mask
 	uint32_t lastStepTime;  // time in microseconds that last step happened
 	uint32_t stepsLeft;     // steps left to move, neg for counter-clockwise
-	int delay;              // microsecond delay between steps
-	bool isStopped;         // 
+	bool isStopped;         // is motor stopped
+	uint32_t delay;         // microsecond delay between steps
 	void calcDelay();       // calcs microsecond step delay for given rpm
 	void step();            // send step sequence to driver
-
 };
 
 #endif

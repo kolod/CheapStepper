@@ -125,9 +125,12 @@ void CheapStepper::stepCCW() {
 
 void CheapStepper::calcDelay()
 {
-	if (rpm < 6) return;   // will overheat, no change
+	if (rpm < 6)   return; // will overheat, no change
 	if (rpm >= 24) return; // highest speed
-	delay = (uint64_t) 60000000 / ((uint64_t) rpm * (uint64_t) spr);
+	
+	// calculate time delay
+	// 60 sec 
+	delay = (uint64_t) 60 * 1000000 / ((uint64_t) rpm * (uint64_t) spr);
 }
 
 void CheapStepper::step()
