@@ -40,7 +40,7 @@ env:
 
 install:
     - pip install -U platformio
-    - platformio lib install "uTimerLib"
+#    - platformio lib install "uTimerLib"
 
 script:
     - platformio ci --board=nodemcuv2 --lib="."
