@@ -44,4 +44,4 @@ install:
     - pio update
 
 script:
-    - platformio ci --board=nodemcuv2 --project-option"lib_ldf_mode=deep" --lib="."
+    - platformio ci --board=nodemcuv2 --project-option="lib_ldf_mode=deep" --lib="."

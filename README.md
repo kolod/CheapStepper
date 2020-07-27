@@ -1,4 +1,4 @@
-# CheapStepper v0.3 #
+# CheapStepper v0.3 #  [![Build Status](https://www.travis-ci.org/kolod/CheapStepper.svg?branch=master)](https://www.travis-ci.org/kolod/CheapStepper)
 ## An Arduino library for the 28BYJ-48 stepper motor  using ULN2003 driver board ##
 
 #### created by Tyler Henry, 6/2016 ####
