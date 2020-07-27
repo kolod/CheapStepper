@@ -38,7 +38,7 @@ CheapStepper::CheapStepper (int in1, int in2, int in3, int in4)
 	off();
 }
 
-void CheapStepper::moveCW(uint32_t value)
+void CheapStepper::moveCW(int32_t value)
 {
 	if (isReady()) {
 		isStopped = false;
@@ -48,7 +48,7 @@ void CheapStepper::moveCW(uint32_t value)
 	}
 }
 
-void CheapStepper::moveCCW(uint32_t value)
+void CheapStepper::moveCCW(int32_t value)
 {
 	if (isReady()) {
 		isStopped = false;
@@ -58,17 +58,17 @@ void CheapStepper::moveCCW(uint32_t value)
 	}
 }
 
-void CheapStepper::moveDegreesCW(uint32_t deg)
+void CheapStepper::moveDegreesCW(int32_t deg)
 {
-	moveCW(uint64_t(deg) * spr / 360);
+	moveCW(int64_t(deg) * spr / 360);
 }
 
-void CheapStepper::moveDegreesCCW(uint32_t deg)
+void CheapStepper::moveDegreesCCW(int32_t deg)
 {
-	moveCCW(uint64_t(deg) * spr / 360);
+	moveCCW(int64_t(deg) * spr / 360);
 }
 
-void CheapStepper::moveTo(uint32_t value)
+void CheapStepper::moveTo(int32_t value)
 {
 	if (value > position) {
 		moveCW(value - position);
@@ -77,9 +77,9 @@ void CheapStepper::moveTo(uint32_t value)
 	}
 }
 
-void CheapStepper::moveToDegree (uint32_t value)
+void CheapStepper::moveToDegree (int32_t value)
 {
-	uint32_t currentValue = uint64_t(position) * 360 / spr;
+	int32_t currentValue = int64_t(position) * 360 / spr;
 	if (value > currentValue) {
 		moveDegreesCW(value - currentValue);
 	} else if (value < currentValue) {

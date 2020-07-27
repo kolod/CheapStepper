@@ -35,12 +35,12 @@ public:
 	// Steps per rotation
 	void setSpr(int value) {spr = value;}
 
-	void moveCW(uint32_t value);           // Move spesified steps clockwise
-	void moveCCW(uint32_t value);          // Move spesified steps counterclockwise
-	void moveDegreesCW(uint32_t value);    // 
-	void moveDegreesCCW(uint32_t value);   // 
-	void moveTo(uint32_t value);           // Move to spesified position clockwise
-	void moveToDegree(uint32_t value);     // 
+	void moveCW(int32_t value);           // Move spesified steps clockwise
+	void moveCCW(int32_t value);          // Move spesified steps counterclockwise
+	void moveDegreesCW(int32_t value);    // 
+	void moveDegreesCCW(int32_t value);   // 
+	void moveTo(int32_t value);           // Move to spesified position clockwise
+	void moveToDegree(int32_t value);     // 
 
 	void run();
 	void stop();
